@@ -1,25 +1,31 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 int main() {
     char expressao[1001];
+    char pilha[1001];
+    int topo;
 
     while (scanf("%s", expressao) != EOF) {
-        int contadorParenteses = 0;
+        topo = -1;
+        bool estaCorreto = true;
 
         for (int i = 0; i < strlen(expressao); i++) {
             if (expressao[i] == '(') {
-                contadorParenteses++;
+                topo++;
+                pilha[topo] = '(';
             } else if (expressao[i] == ')') {
-                contadorParenteses--;
-            }
-
-            if (contadorParenteses < 0) {
-                break;
+                if (topo >= 0) {
+                    topo--;
+                } else {
+                    estaCorreto = false;
+                    break;
+                }
             }
         }
 
-        if (contadorParenteses == 0) {
+        if (estaCorreto && topo == -1) {
             printf("correct\n");
         } else {
             printf("incorrect\n");
