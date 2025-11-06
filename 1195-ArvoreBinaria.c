@@ -29,7 +29,7 @@ Node* insert(Node* root, int data){
 
 void printPreOrder(Node* root){
     if(root != NULL){
-        printf("%d", root->data);
+        printf(" %d", root->data);
         printPreOrder(root->left);
         printPreOrder(root->right);
     }
@@ -38,7 +38,7 @@ void printPreOrder(Node* root){
 void printInOrder(Node* root){
     if(root != NULL){
         printInOrder(root->left);
-        printf("%d",root->data);
+        printf(" %d",root->data);
         printInOrder(root->right);
     }
 }
@@ -47,7 +47,7 @@ void printPostOrder(Node* root){
     if(root != NULL){
         printPostOrder(root->left);
         printPostOrder(root->right);
-        printf("%d",root->data);
+        printf(" %d",root->data);
     }
 }
 
@@ -65,7 +65,7 @@ int main()
     int C,N;
     int caso = 1;
     
-    scanf("&d", &C);
+    scanf("%d", &C);
     
     while (C > 0){
         scanf("%d", &N);
@@ -77,6 +77,9 @@ int main()
             scanf("%d", &valor);
             root = insert(root, valor);
         }
+        
+        printf("Case %d: \n", caso++);
+        
         printf("Pre.:");
         printPreOrder(root);
         printf("\n");
