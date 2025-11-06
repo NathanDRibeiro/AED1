@@ -78,7 +78,7 @@ int main()
             root = insert(root, valor);
         }
         
-        printf("Case %d: \n", caso++);
+        printf("Case %d:\n", caso++);
         
         printf("Pre.:");
         printPreOrder(root);
